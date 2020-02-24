@@ -1,0 +1,11 @@
+version: '2'
+services:
+  analyser-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/analyser/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=analyser
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
