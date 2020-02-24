@@ -1,0 +1,26 @@
+{
+  "analyserApp": {
+    "job": {
+      "home": {
+        "title": "Jobs",
+        "createLabel": "Job erstellen",
+        "createOrEditLabel": "Job erstellen oder bearbeiten",
+        "notFound": "No Jobs found"
+      },
+      "created": "Job erstellt mit ID {{ param }}",
+      "updated": "Job aktualisiert mit ID {{ param }}",
+      "deleted": "Job gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Job {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Job"
+      },
+      "jobTitle": "Job Title",
+      "minSalary": "Min Salary",
+      "maxSalary": "Max Salary",
+      "task": "Task",
+      "employee": "Employee"
+    }
+  }
+}
