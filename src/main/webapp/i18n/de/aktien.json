@@ -1,0 +1,28 @@
+{
+  "analyserApp": {
+    "aktien": {
+      "home": {
+        "title": "Aktiens",
+        "createLabel": "Aktien erstellen",
+        "createOrEditLabel": "Aktien erstellen oder bearbeiten",
+        "notFound": "No Aktiens found"
+      },
+      "created": "Aktien erstellt mit ID {{ param }}",
+      "updated": "Aktien aktualisiert mit ID {{ param }}",
+      "deleted": "Aktien gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Aktien {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Aktien"
+      },
+      "symbol": "Symbol",
+      "date": "Date",
+      "open": "Open",
+      "close": "Close",
+      "high": "High",
+      "low": "Low",
+      "volume": "Volume"
+    }
+  }
+}
