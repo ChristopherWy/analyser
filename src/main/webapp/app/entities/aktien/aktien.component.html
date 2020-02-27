@@ -21,15 +21,15 @@
     <div class="table-responsive" id="entities" *ngIf="aktiens?.length > 0">
         <table class="table table-striped" aria-describedby="page-heading">
             <thead>
-                <tr>
-                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.symbol">Symbol</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.date">Date</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.open">Open</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.close">Close</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.high">High</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.low">Low</span></th>
-                    <th scope="col" ><span jhiTranslate="analyserApp.aktien.volume">Volume</span></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="loadPage.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="symbol"><span jhiTranslate="analyserApp.aktien.symbol">Symbol</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="date"><span jhiTranslate="analyserApp.aktien.date">Date</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="open"><span jhiTranslate="analyserApp.aktien.open">Open</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="close"><span jhiTranslate="analyserApp.aktien.close">Close</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="high"><span jhiTranslate="analyserApp.aktien.high">High</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="low"><span jhiTranslate="analyserApp.aktien.low">Low</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="volume"><span jhiTranslate="analyserApp.aktien.volume">Volume</span> <fa-icon icon="sort"></fa-icon></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -69,5 +69,15 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div *ngIf="aktiens?.length > 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="ngbPaginationPage" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage($event)"></ngb-pagination>
+        </div>
     </div>
 </div>
