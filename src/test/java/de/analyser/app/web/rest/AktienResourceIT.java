@@ -3,7 +3,6 @@ package de.analyser.app.web.rest;
 import de.analyser.app.AnalyserApp;
 import de.analyser.app.domain.Aktien;
 import de.analyser.app.repository.AktienRepository;
-import de.analyser.app.service.AktienService;
 import de.analyser.app.web.rest.errors.ExceptionTranslator;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -61,9 +60,6 @@ public class AktienResourceIT {
     private AktienRepository aktienRepository;
 
     @Autowired
-    private AktienService aktienService;
-
-    @Autowired
     private MappingJackson2HttpMessageConverter jacksonMessageConverter;
 
     @Autowired
@@ -85,7 +81,7 @@ public class AktienResourceIT {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final AktienResource aktienResource = new AktienResource(aktienService);
+        final AktienResource aktienResource = new AktienResource(aktienRepository);
         this.restAktienMockMvc = MockMvcBuilders.standaloneSetup(aktienResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -230,7 +226,7 @@ public class AktienResourceIT {
     @Transactional
     public void updateAktien() throws Exception {
         // Initialize the database
-        aktienService.save(aktien);
+        aktienRepository.saveAndFlush(aktien);
 
         int databaseSizeBeforeUpdate = aktienRepository.findAll().size();
 
@@ -287,7 +283,7 @@ public class AktienResourceIT {
     @Transactional
     public void deleteAktien() throws Exception {
         // Initialize the database
-        aktienService.save(aktien);
+        aktienRepository.saveAndFlush(aktien);
 
         int databaseSizeBeforeDelete = aktienRepository.findAll().size();
 
