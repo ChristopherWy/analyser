@@ -1,0 +1,28 @@
+{
+  "analyserApp": {
+    "aktien": {
+      "home": {
+        "title": "Aktiens",
+        "createLabel": "Create a new Aktien",
+        "createOrEditLabel": "Create or edit a Aktien",
+        "notFound": "No Aktiens found"
+      },
+      "created": "A new Aktien is created with identifier {{ param }}",
+      "updated": "A Aktien is updated with identifier {{ param }}",
+      "deleted": "A Aktien is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Aktien {{ id }}?"
+      },
+      "detail": {
+        "title": "Aktien"
+      },
+      "symbol": "Symbol",
+      "date": "Date",
+      "open": "Open",
+      "close": "Close",
+      "high": "High",
+      "low": "Low",
+      "volume": "Volume"
+    }
+  }
+}
